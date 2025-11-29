@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMK BISA - Pusat Kisi-Kisi Ujian</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-content">
+            <h1><i class="icon-smk">🛠️</i> SMK BISA!</h1>
+            <p>Pusat Resmi Pemberian **Kisi-Kisi Ujian Kompetensi**</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <section class="document-card animated-card">
+            <div class="card-header">
+                <h2>Kisi-Kisi Ujian Semester Genap 2025</h2>
+                <span class="status-tag">AKSES TERBATAS</span>
+            </div>
+            
+            <p class="description">Dokumen ini ditujukan khusus untuk siswa/i SMK dan dilindungi demi menjaga integritas ujian. Harap masukkan **kode akses khusus** untuk mengunduh.</p>
+            
+            <div id="password-form" class="form-group">
+                <input type="password" id="doc-password" placeholder="Masukkan Kode Akses Kisi-Kisi">
+                <button onclick="checkPassword()" class="btn-verify">Verifikasi & Unduh</button>
+                <p id="error-message" class="error"></p>
+            </div>
+            
+            <a id="download-link" href="kisi-kisi-ujian-2025.pdf" target="_blank" class="download-button" style="display: none;">
+                <i class="icon-download">⬇️</i> Unduh Dokumen Kisi-Kisi (PDF)
+            </a>
+        </section>
+        
+        <p class="warning-note">
+            **PERHATIAN:** Demi kerahasiaan, isi dokumen kisi-kisi tidak ditampilkan di halaman web. File akan langsung diunduh setelah verifikasi berhasil.
+        </p>
+    </div>
+
+    <div class="footer">
+        © 2025 SMK BISA - Maju Bersama Vokasi.
+    </div>
+
+    <script>
+        // 🚨 PASTIKAN DATA INI SUDAH SESUAI DENGAN KEBUTUHAN ANDA 🚨
+        const CORRECT_PASSWORD = "KodeAksesRahasia"; // GANTI DENGAN PASSWORD YANG ANDA INGINKAN
+        const PDF_FILE_NAME = "kisi-kisi-ujian-2025.pdf"; // GANTI DENGAN NAMA FILE PDF KISI-KISI ANDA
+
+        function checkPassword() {
+            const input = document.getElementById('doc-password').value;
+            const errorMsg = document.getElementById('error-message');
+            const downloadLink = document.getElementById('download-link');
+            
+            if (input === CORRECT_PASSWORD) {
+                document.getElementById('password-form').style.display = 'none';
+                downloadLink.style.display = 'flex';
+                errorMsg.textContent = "Verifikasi Berhasil! Silakan klik Unduh Kisi-Kisi.";
+                errorMsg.classList.remove('error');
+                errorMsg.classList.add('success');
+            } else {
+                errorMsg.textContent = "Kode Akses Salah. Mohon periksa kembali.";
+                errorMsg.classList.remove('success');
+                errorMsg.classList.add('error');
+                downloadLink.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
